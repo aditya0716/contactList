@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=locals.title%></title>
+    <script
+      src="https://kit.fontawesome.com/7544f3a3fc.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="../css/home.css" />
+  </head>
+  <body>
+    <h1 id="contact-list">
+      <i class="far fa-address-book"></i> My Contacts List
+    </h1>
+    <div class="container">
+      <ul>
+        <%for(i of contact_list){%>
+        <li class="element">
+          <p class="bullet"><%=i.name%></p>
+          <p class="bullet"><%=i.phone%></p>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+    <form action="/create-contact" method="POST" id="form">
+      <input type="text" name="name" placeholder="Enter Name" required />
+      <input
+        type="number"
+        name="phone"
+        placeholder="Enter Phone No."
+        required
+      />
+      <button name="submit">Add-Contact</button>
+    </form>
+    <script type="text/javascript" src="../js/home.js"></script>
+  </body>
+</html>
