@@ -12,29 +12,36 @@
     <link rel="stylesheet" href="../css/home.css" />
   </head>
   <body>
-    <h1 id="contact-list">
-      <i class="far fa-address-book"></i> My Contacts List
-    </h1>
-    <div class="container">
+    <div class="content">
+      <h1><i class="far fa-address-book"></i> My Contacts List</h1>
       <ul>
         <%for(i of contact_list){%>
-        <li class="element">
-          <p class="bullet"><%=i.name%></p>
-          <p class="bullet"><%=i.phone%></p>
+        <li>
+          <p><%=i.name%></p>
+          <p><%=i.phone%></p>
+          <div>
+            <a href="/delete-contact/?phone=<%= i.phone %>"
+              ><i class="fas fa-window-close"></i>
+            </a>
+          </div>
         </li>
         <%}%>
       </ul>
+      <div class="form-element">
+        <form action="/create-contact" method="POST" id="form">
+          <input type="text" name="name" placeholder="Enter Name" required />
+          <br />
+          <input
+            type="number"
+            name="phone"
+            placeholder="Enter Phone No."
+            required
+          />
+          <br />
+          <button name="submit">Add-Contact</button>
+        </form>
+      </div>
     </div>
-    <form action="/create-contact" method="POST" id="form">
-      <input type="text" name="name" placeholder="Enter Name" required />
-      <input
-        type="number"
-        name="phone"
-        placeholder="Enter Phone No."
-        required
-      />
-      <button name="submit">Add-Contact</button>
-    </form>
     <script type="text/javascript" src="../js/home.js"></script>
   </body>
 </html>
