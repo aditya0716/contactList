@@ -9,5 +9,5 @@ const contactSchema = mongoose.Schema({
     required: true,
   },
 });
-const Contact = mongoose.model("Contact", contactSchema);
-module.exports = Contact;
+const contacts = mongoose.model("contacts", contactSchema);
+module.exports = contacts;
